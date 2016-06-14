@@ -8,7 +8,7 @@ tests](https://github.com/reconquest/test.sh).
 ## Via [import.bash](https://github.com/reconquest/import.bash)
 
 ```
-import "github.com/reconquest/import.bash"
+import "github.com/reconquest/ssh-test.bash"
 ```
 
 # Reference
