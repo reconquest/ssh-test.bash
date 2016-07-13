@@ -86,19 +86,15 @@ ssh-test:remote:copy-id() {
 # authentication.
 #
 # @arg $1 string Address to connect to.
-# @arg $2 string Username. [default: $USER]
-# @arg $3 string Path to identity. [default: ./id_rsa]
 ssh-test:connect:by-key() {
     local address="$1"
-    local user="${2:-$_ssh_test_username}"
-    local identity="${3:-$_ssh_test_key_path}"
-    shift 3 || true
+    shift 1
 
     ssh \
         -oStrictHostKeyChecking=no \
         -oPasswordAuthentication=no \
         -oControlPath=none \
-        -i "$identity" \
-        -l "$user" \
+        -i "$_ssh_test_key_path" \
+        -l "$_ssh_test_username" \
         "$address" "${@}"
 }
