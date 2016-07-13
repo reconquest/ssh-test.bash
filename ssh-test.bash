@@ -47,10 +47,10 @@ ssh-test:set-username() {
 
 # @description Starts sshd on the remote node.
 #
-# @arg $@ any Arguments for the sshd. [default: -Dd]
+# @arg $@ any Arguments for the sshd. [default: -D]
 ssh-test:remote:run-daemon() {
     "${_ssh_test_remote_runner[@]}" \
-        sshd "${@:--Dd}"
+        sshd "${@:--D}"
 }
 
 # @description Generated new keypair.
