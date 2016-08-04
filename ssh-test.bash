@@ -55,11 +55,9 @@ ssh-test:remote:run-daemon() {
 
 # @description Generated new keypair.
 #
-# @arg $1 string Path to generated keypair. [default: ./]
+# @arg $* any Arguments for ssh-keygen. [default: -P '' -f ./id_rsa]
 ssh-test:local:keygen() {
-    local output_file=${1:-$_ssh_test_key_path}
-
-    ssh-keygen -P '' -f "$output_file"
+    echo 'y' | eval ssh-keygen ${@:--P \'\' -f $_ssh_test_key_path}
 }
 
 # @description Generates keys for the sshd.
