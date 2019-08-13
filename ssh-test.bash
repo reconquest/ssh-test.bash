@@ -91,6 +91,7 @@ ssh-test:connect:by-key() {
     ssh \
         -oStrictHostKeyChecking=no \
         -oPasswordAuthentication=no \
+        -oIdentitiesOnly=yes \
         -oControlPath=none \
         -i "$_ssh_test_key_path" \
         -l "$_ssh_test_username" \
